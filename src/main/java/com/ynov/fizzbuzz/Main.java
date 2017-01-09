@@ -13,7 +13,14 @@ public class Main {
             boolean isMultipleOf3 = (i % 3 == 0);
             boolean isMultipleOf5 = (i % 5 == 0);
 
-            if(isMultipleOf3) {
+            // On saute une ligne pour 9, 19, 29 ...
+            // Ce qui revient à sauter une ligne si le prochain nombre à tester est un multiple de 10
+            boolean lineBreak = ((i+1) % 10 == 0);
+
+            if(isMultipleOf3 && isMultipleOf5) {
+                // Si i est multiple de 3 ET de 5, on affiche "fizzbuzz"
+                System.out.print("fizzbuzz ");
+            } else if(isMultipleOf3) {
                 // Si i est multiple de 3, on affiche "fizz"
                 System.out.print("fizz ");
             } else if(isMultipleOf5) {
@@ -22,6 +29,11 @@ public class Main {
             } else {
                 // Si i n'est ni multiple de 3, ni multiple de 5, on affiche sa valeur
                 System.out.print(i+" ");
+            }
+
+            // On saute une ligne
+            if(lineBreak) {
+                System.out.print("\n");
             }
         }
     }
